@@ -1,0 +1,56 @@
+.contenedor-form{
+    margin-left: 30%;
+}
+.div-entrada-shadow{
+    background-color: #c4b8b8;
+    width: 32rem;
+    box-shadow: 3px 3px 20px 4px rgba(2, 19, 247, 0.25);
+    height: 40rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    display:flex;
+    margin: 0 auto;
+    color: black;
+}
+.btn-cards{
+    color: whitesmoke;
+    margin-top: 1rem;
+}
+
+/**css de salida**/
+.form-control-salida{
+    margin: 5px;
+    border:0;
+    font-weight:700;
+    color:#063141;
+    width: 65% !important;
+}
+.form-control-input{
+    margin: 5px;
+    border:0;
+    font-weight:700;
+    color:#063141;
+    width: 35% !important;
+}
+.input-salida-cantidad{
+    margin-top: 20px;
+    border:0;
+    border-radius: 5px;
+    width: 57%;
+    height: 20%;
+}
+.btn-salida{
+    margin-top: 20px;
+    padding: 4px;
+    border:0;
+    border-radius: 5px;
+    width: 20%;
+    background-color: #2596be;
+}
+.table-color-salida{
+    background-color: #c4b8b8;
+}
+.card-salida{
+    background:aliceblue;
+    border-radius: 10px;
+}

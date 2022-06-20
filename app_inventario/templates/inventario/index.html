@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Inicio
+{% endblock %}
+
+{% block container %}
+    <div class="mt-5">
+        <h1 style="text-align: center;">Área de Telas</h1>
+    </div>
+   <div class="contenedor">
+    <div class="row">
+        <div class=" col-4 divPrimeros-shadow">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-primeros"><a href="{% url 'inventarioE1' %}" class="btn cards a-btn-cardsPrimeros">Estante 1</a></li>
+                <li class="list-group-primeros"><a href="{% url 'entradaE1' %}" class="btn cards a-btn-cardsPrimeros">Entrada</a></li>
+                <li class="list-group-primeros"><a href="{% url 'salidaE1' %}" class="btn cards a-btn-cardsPrimeros">Realizar Salida</a></li>
+                <li class="list-group-primeros"><a href="{% url 'verSalidaE1' %}" class="btn cards a-btn-cardsPrimeros">Ver Salidas</a></li>
+            </ul>
+        </div>
+        <div class=" col-4 divPrimeros-shadow">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-primeros"><a href="" class="btn cards a-btn-cardsPrimeros">Estante 2</a></li>
+                <li class="list-group-primeros"><a href="" class="btn cards a-btn-cardsPrimeros">Entrada</a></li>
+                <li class="list-group-primeros"><a href="" class="btn cards a-btn-cardsPrimeros">Realizar Salida</a></li>
+                <li class="list-group-primeros"><a href="" class="btn cards a-btn-cardsPrimeros">Ver Salidas</a></li>
+            </ul>
+        </div>
+        <div class=" col-4 div-arriba-shadow">
+            <ul class="col-6">
+                <li class="list-group-ia"><a href="" class="btn cardA a-btn-arriba">Estante 3</a></li>
+                <li class="list-group-ia"><a href="" class="btn cardA a-btn-arriba">Realizar Salida</a></li>
+            </ul>
+            <ul class="col-6">
+                <li class="list-group-ia"><a href="" class="btn cardA a-btn-arriba">Entrada</a></li>
+                <li class="list-group-ia"><a href="" class="btn cardA a-btn-arriba">Ver Salidas</a></li>
+            </ul>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="row mt-5">
+        <div class="col-3 div-shadow">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-i"><a href="" class="btn cards a-btn-cards">Estante 4</a></li>
+                <li class="list-group-i"><a href="" class="btn cards a-btn-cards">Entrada</a></li>
+                <li class="list-group-i"><a href="" class="btn cards a-btn-cards">Realizar Salida</a></li>
+                <li class="list-group-i"><a href="" class="btn cards a-btn-cards">Ver Salidas</a></li>
+            </ul>
+        </div>
+        <div class="col-3 div-largo-shadow">
+            <ul class="">
+                <li class="list-group-ia"><a href="" class="btn cardA a-btn-arriba-largo">Estante 5</a></li>
+                <li class="list-group-ia"><a href="" class="btn cardA a-btn-arriba-largo">Entrada</a></li>
+                <li class="list-group-ia"><a href="" class="btn cardA a-btn-arriba-largo">Realizar Salida</a></li>
+                <li class="list-group-ia"><a href="" class="btn cardA a-btn-arriba-largo">Ver Salidas</a></li>
+            </ul>
+        </div>
+        <div class="col-3">
+
+        </div>
+        <div class="col-3 div-largo2-shadow">
+            <ul class="">
+                <li class="list-group-ia"><a href="" class="btn cardA a-btn-arriba-largo">Estante 6</a></li>
+                <li class="list-group-ia"><a href="" class="btn cardA a-btn-arriba-largo">Entrada</a></li>
+                <li class="list-group-ia"><a href="" class="btn cardA a-btn-arriba-largo">Realizar Salida</a></li>
+                <li class="list-group-ia"><a href="" class="btn cardA a-btn-arriba-largo">Ver Salidas</a></li>
+            </ul>
+        </div>
+    </div>
+   </div>
+{% endblock %}
