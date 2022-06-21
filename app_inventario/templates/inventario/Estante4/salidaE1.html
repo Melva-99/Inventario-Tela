@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% block title%} Realizar salida {% endblock%}
+
+{% block container %}
+    <div class="">
+            {% comment %} Tabla que muestra todos las telas {% endcomment %}
+        <div class="row">
+            <div class="col-4">
+                {% if p %}
+                <form action="{% url 'salidaTelas4' it.tela.id it.estante.id %}" method="post">
+                    {% else %}
+                <form action="" method="post">
+                    {% endif %}
+                    {% csrf_token %}
+                        <div class="card-salida" style="width: 17.5rem; box-shadow: 3px 3px 20px 4px rgba(2, 19, 247, 0.25);margin-right: 3px;height: 22rem;">
+                            <div class="card-body">
+                                <p id="id_producto" name="id_producto" value="{{t.id}}" class="card-text text-secondary ">
+                                    Código: <strong>{{t.id}}</strong>
+                                </p>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li value="{{t.id}}" id="nombre" name="nombre" class="list-group-item" style="height:4.5rem;">Nombre:<input readonly class="form-control-salida" style="width: 60%;" type="text" name="nombre" id="nombre" value={{t.nombre}}  ></li>
+                                <li value="{{t.calidad}}" id="calidad" name="calidad" class="list-group-item" style="height:4.5rem;">Calidad:<input  readonly class="form-control-salida" style="width: 60%;" type="text" name="calidad" id="calidad" value={{t.calidad}} ></li>
+                                <li value="{{t.color}}" id="color" name="color" class="list-group-item" style="height:4.5rem;">Color:<input readonly class="form-control-salida" style="width: 60%;" type="text"  name="color" id="color" value={{t.color}} ></li>
+                                <li value="{{t.numeroRollo}}" id="numeroRollo" name="numeroRollo" class="list-group-item" style="height:4.5rem;">Número de Rollo:<input readonly class="form-control-input" style="width: 60%;" type="number" name="numeroRollo" id="numeroRollo" value={{t.numeroRollo}} ></li> 
+                            </ul>
+                        </div>
+                        <div>
+                            <input class="form-control-sm input-salida-cantidad" type="number" name="cantidad" id="cantidad" placeholder="Cantidad a retirar" min="1" required>
+                            <button class="btn-salida">Salida</button>
+                        </div>
+                    </form>
+            </div>
+            <div class=" col-8">
+                <table class="table table-hover table-color-salida table-striped">
+                    <thead>
+                        <tr>
+                            <th class="text-center">Tela</th>
+                            <th class="text-center">Tipo de Tela</th>
+                            <th class="text-center">Cantidad</th>
+                            <th class="text-center">Estante</th>
+                            <th class="text-center">Número de Rollo</th>
+                            <th class="text-center">Calidad</th>
+                            <th class="text-center">Color</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for inventario in inv %}
+                            <tr data-href="{% url 'salidaTelas4' inventario.tela.id inventario.tela.id %}" style="cursor: pointer;">
+                                <td class="text-center">{{inventario.tela.nombre}}</td>
+                                <td class="text-center">{{inventario.tela.tipoTela}}</td>
+                                <td class="text-center">{{inventario.cantidadYarda}}</td>
+                                <td class="text-center">{{inventario.estante}}</td>
+                                <td class="text-center">{{inventario.tela.numeroRollo}}</td>
+                                <td class="text-center">{{inventario.tela.calidad}}</td>
+                                <td class="text-center">{{inventario.tela.color}}</td>
+                            </tr>
+                        {% empty %}
+                            <tr>
+                                <td  class="text-center" colspan="10" class="text-danger text-center">No se encontraron resultados</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+            </div>
+        </div>
+    </div>
+    {% if messages %}
+        <div class="alert alert-{{msj}} mb-2">
+            {% for message in messages %}
+                {{ message}}
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block js %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('table tr').click(function(){
+            window.location = $(this).data('href');
+            return false;
+        });
+    });
+    $(function () {
+        
+        setTimeout(() => {
+            $('.alert').slideUp(function () {
+                $(this).remove();
+            });
+        }, 3000)
+
+    });
+</script>
+{% endblock js %}
+

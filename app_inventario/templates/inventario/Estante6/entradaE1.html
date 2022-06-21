@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Nuevo Tela
+{% endblock %}
+
+{% block container %}
+    {% if messages %}
+        <div class="alert alert-{{msj}} mb-2">
+            {% for message in messages %}
+                {{ message}}
+            {% endfor %}
+        </div>
+    {% endif %}
+    <div class="container" style="color: #FFFFFF">
+        <h1 style="text-align:center">Entrada de telas</h1>
+        <form action="{% url 'entradaE6' %}" method="POST" id="frm-entradaE1">
+            {% csrf_token %}
+                <div class="div-entrada-shadow">
+                    <p class="mb-3 contenedor-form">
+                        <br>
+                        <label for="Tela">Tela</label>
+                        <input value="" type="text" name="nombre" id="nombre" class="form-control" autocomplete="off" required autofocus>
+                        <br>
+                        <label for="Calidad">Calidad</label>
+                        <input value="" type="text" name="calidad" id="calidad" class="form-control" autocomplete="off" required autofocus>
+                        <br>
+                        <label for="Color">Color</label>
+                        <input value="" type="text" name="color" id="color" class="form-control" autocomplete="off" required autofocus>
+                        <br>
+                        <label for="numeroRollo" >Numero de rollo</label>
+                        <input type="number" value="" min="1" name="numeroRollo" id="numeroRollo" class="form-control" required>
+                        <br>
+                        <label for="cantidadYarda">Cantidad de yardas</label>
+                        <input type="number" value="" min="1" name="cantidadYarda" id="cantidadYarda" class="form-control" required>
+                        <br>
+                        <label for="tipoTela">Tipo de tela</label>
+                        <select name="tipoTela" id="tipoTela" class="form-select form-control-chosen">
+                            {% for tipo in tipoTela %}
+                                <option value="{{tipo.id}}">{{tipo.nombre}}</option>
+                            {% endfor %}
+                        </select>
+                        <br>
+                        <input type="submit" class="btn cards btn-cards" value="Registrar">
+                    </p> 
+                </div> 
+        </form>
+    </div>
+{% endblock %}
+
+{% block js %}
+    <script>
+     $(function () 
+     {
+        setTimeout(() => {
+            $('.alert').slideUp(function () {
+                $(this).remove();
+            });
+        }, 2000)
+    });
+</script>
+{% endblock  %}

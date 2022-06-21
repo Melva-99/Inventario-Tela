@@ -49,26 +49,27 @@ body, html{
     background-color: #c4b8b8;
     width: 15.5rem;
     box-shadow: 3px 3px 20px 4px rgba(2, 19, 247, 0.25);
-    height: 20rem;
+    height: 15.5rem;
     border-radius: 0.5rem;
     margin-right: 20px;
     margin-top: 20px;
 }
 .div-largo-shadow{
     background-color: #c4b8b8;
-    width: 49rem;
+    width: 40rem;
     box-shadow: 3px 3px 20px 4px rgba(2, 19, 247, 0.25);
     height: 12rem;
     border-radius: 0.5rem;
     margin-top: 20px;
+    margin-left: 7rem;
 }
 .div-largo2-shadow{
     background-color: #c4b8b8;
-    width: 49rem;
+    width: 40rem;
     box-shadow: 3px 3px 20px 4px rgba(2, 19, 247, 0.25);
     height: 12rem;
     border-radius: 0.5rem;
-    margin-left: -0.5rem;
+    margin-left: 6.5rem;
     margin-top: -12rem;
 }
 .list-group-primeros{
@@ -78,7 +79,7 @@ body, html{
     background-color: #c4b8b8;
     width: 32rem;
     box-shadow: 3px 3px 20px 4px rgba(2, 19, 247, 0.25);
-    height: 20rem;
+    height: 15.5rem;
     border-radius: 0.5rem;
     margin-right: 20px;
     display:flex;
@@ -115,7 +116,8 @@ a{
 .a-btn-arriba{
     color:whitesmoke;
     width: 9rem;
-    margin-left: 1rem;
+    margin-left: -0.5rem;
+    margin-top: 1.5rem;
 }
 .boton-actualizar{
     width: 17.5rem;
@@ -145,5 +147,5 @@ a{
 .a-btn-arriba-largo{
     color:whitesmoke;
     width: 9rem;
-    margin-left: 3rem;
+    margin-left: 3.5rem;
 }
