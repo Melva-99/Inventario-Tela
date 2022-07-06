@@ -36,16 +36,6 @@ class Inventario(models.Model):
     def __str__(self):
         return f'{self.estante} {self.tela}'
 
-class Transferencia(models.Model):
-    fecha = models.DateField(auto_now_add=True)
-    cantidadYarda = models.IntegerField()
-    estanteOrigen = models.ForeignKey(Estante,related_name="estanteOrigen" ,on_delete=models.CASCADE)
-    estanteDestino = models.ForeignKey(Estante,related_name="estanteDestino" ,on_delete=models.CASCADE)
-    telaProduc = models.ForeignKey(Tela, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return f'{self.telaProduc} - Origen: {self.estanteOrigen}  - Destino: {self.estanteDestino}'
-
 class DetalleSalida(models.Model):
 
     fecha = models.DateField(auto_now_add=True)

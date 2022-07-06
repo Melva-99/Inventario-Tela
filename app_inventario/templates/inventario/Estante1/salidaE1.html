@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-4">
                 {% if p %}
-                <form action="{% url 'salidaTelas' it.tela.id it.estante.id %}" method="post">
+                <form action="{% url 'inventario:salidaTelas' it.tela.id it.estante.id %}" method="post">
                     {% else %}
                 <form action="" method="post">
                     {% endif %}
@@ -47,7 +47,7 @@
                     </thead>
                     <tbody>
                         {% for inventario in inv %}
-                            <tr data-href="{% url 'salidaTelas' inventario.tela.id inventario.tela.id %}" style="cursor: pointer;">
+                            <tr data-href="{% url 'inventario:salidaTelas' inventario.tela.id inventario.tela.id %}" style="cursor: pointer;">
                                 <td class="text-center">{{inventario.tela.nombre}}</td>
                                 <td class="text-center">{{inventario.tela.tipoTela}}</td>
                                 <td class="text-center">{{inventario.cantidadYarda}}</td>

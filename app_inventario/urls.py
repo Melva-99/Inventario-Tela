@@ -35,4 +35,5 @@ urlpatterns = [
     path('entradaE6/', views.entradaE6, name='entradaE6'),
     path('salidaE6/', views.salidaE6, name='salidaE6'),
     path('salidaE6/<int:id>/<int:id_estante>/salida', views.salidaTelas6 , name="salidaTelas6"),
+    
 ]

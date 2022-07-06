@@ -823,3 +823,4 @@ def entradaE6(request):
         'inventario': inventario,
     }
     return render(request, 'inventario/Estante6/entradaE1.html', ctx)
+
