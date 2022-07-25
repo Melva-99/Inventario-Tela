@@ -101,55 +101,17 @@ def entrada(request):
         IdEstante = int(request.POST.get('estante'))
         estante = Estante.objects.get(pk=IdEstante)
 
-        try:
-            tela = Tela.objects.get(nombre=nombre)
-        except:
-            pass
+        p = Tela(nombre=nombre, calidad=calidad, color=color, numeroRollo=numeroRollo, diseno=diseno)
+        p.save()
         
-        variable = ''
-        try:
-            variable = Inventario.objects.get(tela=tela)
-            
-        except:
-            pass
+        telasInv = Tela.objects.last()
 
-        if Tela.objects.filter(nombre=nombre) and variable != '' and Tela.objects.filter(diseno=diseno):
-
-            data = Tela.objects.all().order_by('nombre')
-            inventario = Inventario.objects.all()
-            ctx = {
-                'tela': data,
-                'msj':'danger',
-                'inventario' : inventario
-            }
-            msj = 'La tela ya existe!'
-            messages.add_message(request,messages.INFO, msj)
-            return render(request, 'inventario/entrada.html', ctx)
-
-        try:
-            telas
-        except:
-            p = Tela(nombre=nombre, calidad=calidad, color=color, numeroRollo=numeroRollo, diseno=diseno)
-            p.save()
-            
-        telasInv = Tela.objects.get(nombre=nombre)
         inv = Inventario(estante=estante,tela=telasInv, diseno=diseno, cantidadYarda=cantidadYarda, fecha=fecha)
         inv.save()
+        p.save()
 
         msj = 'Tela registrada correctamente.'
         messages.add_message(request, messages.INFO, msj)
-        
-        data = Tela.objects.all().order_by('nombre')
-        inventario = Inventario.objects.all()
-
-        ctx = {
-            'telas': data,
-            'estante': Estante.objects.all(),
-            'msj':'success',
-            'inventario' : inventario
-        }
-        
-        return render(request, 'inventario/entrada.html', ctx)
 
     telas = Tela.objects.all().order_by('nombre')
     inventario = Inventario.objects.all()
@@ -157,6 +119,7 @@ def entrada(request):
     ctx ={
         'telas': telas,
         'estante': Estante.objects.all(),
+        'msj':'success',
         'inventario': inventario,
     }
     return render(request, 'inventario/entrada.html', ctx)
