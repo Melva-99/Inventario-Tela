@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Detalle de salida
+{% endblock %}
+
+{% block container %}
+<div class="row">
+    <h1 class="h1-entrada">Detalle de salida</h1>
+    <table class="">
+        <thead>
+            <tr>
+                <th class="text-center">Fecha</th>
+                <th class="text-center">Tela</th>
+                <th class="text-center">Cantidad retirada</th>
+                <th class="text-center">Estante</th>
+                <th class="text-center">Número de Rollo</th>
+                <th class="text-center">Calidad</th>
+                <th class="text-center">Color</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ds in detalleSalida %}
+                <tr data-href="{% url 'inventario:detalleSalida' %}" style="cursor: pointer;">
+                    <td class="text-center">{{ds.fecha}}</td>
+                    <td class="text-center">{{ds.nombre}}</td>
+                    <td class="text-center">{{ds.cantidadYarda}}</td>
+                    <td class="text-center">{{ds.estante}}</td>
+                    <td class="text-center">{{ds.numeroRollo}}</td>
+                    <td class="text-center">{{ds.calidad}}</td>
+                    <td class="text-center">{{ds.color}}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td  class="text-center" colspan="10" class="text-danger text-center">No se encontraron resultados</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

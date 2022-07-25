@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Inventario
+{% endblock %}
+
+{% block container %}
+<div class="row">
+    <h1 class="h1-entrada">Inventario</h1>
+    <table>
+        <thead>
+            <tr>
+                <th class="text-center">Estante</th>
+                <th class="text-center">Tela</th>
+                <th class="text-center">Diseño</th>
+                <th class="text-center">Cantidad</th>
+                <th class="text-center">Número de rollo</th>
+                <th class="text-center">Color</th>
+                <th class="text-center">Fecha de registro</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for inv in inventarioTela %}
+                <tr>
+                    <td class="text-center">{{inv.estante}}</td>
+                    <td class="text-center">{{inv.tela}}</td>
+                    <td class="text-center">{{inv.diseno}}</td>
+                    <td class="text-center">{{inv.cantidadYarda}}</td>
+                    <td class="text-center">{{inv.tela.numeroRollo}}</td>
+                    <td class="text-center">{{inv.tela.color}}</td>
+                    <td class="text-center">{{inv.fecha}}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="10" class="text-danger text-center">No se encontraron resultados</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

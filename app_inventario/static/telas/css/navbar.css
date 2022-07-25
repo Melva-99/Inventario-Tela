@@ -1,0 +1,43 @@
+body, html{
+    margin: 0;
+  }
+.ul-nav {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      padding-right: 50px;
+      overflow: hidden;
+      background-color: #f4bc6e;
+    }
+  
+    .li-nav {
+      float:right;
+    }
+    
+    .li-nav a {
+      display: block;
+      color: #3d2218;
+      text-align: center;
+      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 25px 16px;
+      text-decoration: none;
+    }
+    
+    .li-nav a:hover:not(.active) {
+      background-color: #b5834f;
+      color: #f4bc6e;
+    }
+    
+    .active {
+      background-color: #b5834f;
+      color: #f4bc6e;
+    }
+  .li-logo{
+    float:left;
+    padding-left: 50px;
+    padding-top: 0.3rem;
+  }
+  .logo {
+    width: 7rem;
+    height: 3.5rem;
+  }

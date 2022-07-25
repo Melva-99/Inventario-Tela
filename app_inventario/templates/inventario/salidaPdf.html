@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <style type="text/css">
+         @page {
+         size: letter landscape;
+         margin: 2cm;
+         }
+         .grid-item {
+            display: grid;
+            font-size: 15px;
+         }
+      </style>
+   </head>
+   <body>
+      <div class="container mt-5">
+      <div class="row">
+         <h1 style="text-align:center; color:#825738; font-size: 19px;">Reporte de Salida</h1>
+         <h1 style="text-align:center; color:#825738; font-size: 19px;">Área de Tela</h1>
+         <h2 style="text-align:center; color:#825738; font-size: 19px; ">Indumuebles S.A</h2>
+         <table style="font-size: 13px; margin-bottom:28rem;">
+            <thead>
+               <tr>
+                  <th>Fecha</th>
+                  <th>Tela</th>
+                  <th>Cantidad retirada</th>
+                  <th>Estante</th>
+                  <th>Número de Rollo</th>
+                  <th>Calidad</th>
+                  <th>Color</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <th>{{Salida.fecha}}</th>
+                  <th>{{Salida.nombre}}</th>
+                  <th>{{Salida.cantidadYarda}}</th>
+                  <th>{{Salida.estante}}</th>
+                  <th>{{Salida.numeroRollo}}</th>
+                  <th>{{Salida.calidad}}</th>
+                  <th>{{Salida.color}}</th>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+      <div>
+         <h2 class="grid-item">HECHO POR:_________________________________________</h2>
+         <h2 class="grid-item">ENTREGADO POR:_____________________________________</h2>
+      </div>
+      <br>
+      <br>
+      <div>
+        <h2 class="grid-item">AUTORIZADO POR:_____________________________________</h2>
+        <h2 class="grid-item">RECIBIDO POR:_______________________________________</h2>
+     </div>
+   </body>
+</html>

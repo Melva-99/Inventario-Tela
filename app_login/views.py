@@ -23,7 +23,6 @@ def log_in(request):
         else:
             messages.add_message(request, messages.ERROR, 'El usuario/contraseña inválidos o la cuenta está desactivada')
             return redirect('/')
-
         return HttpResponse(f'Usuario: {user} - Clave: {pawd}')
     else:
         return redirect('/')

@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+
+{% block title%} Realizar salida {% endblock%}
+
+{% block container %}
+    <div class="">
+        <h1 class="h1-entrada">Salida de Telas</h1>
+            {% comment %} Tabla que muestra todos las telas {% endcomment %}
+        <div class="row contenedor-padre">
+            <div class="col-4 contenedor">
+                {% if p %}
+                <form action="{% url 'inventario:salidaTelas' it.tela.id it.estante.id %}" method="post">
+                    {% else %}
+                <form action="" method="post">
+                    {% endif %}
+                    {% csrf_token %}
+                        <div class="">
+                            <ul class="ul-salida">
+                                <li class="list-group-item">Seleccione una fila para realizar la salida</li>
+                                <li value="{{t.id}}" id="id_producto" name="id_producto" class="list-group-item">Código:<input readonly class="form-control-salida" type="text" name="nombre" id="nombre" value="{{t.id}}" required></li>
+                                <li value="{{t.id}}" id="nombre" name="nombre" class="list-group-item">Nombre:<input readonly class="form-control-salida" type="text" name="nombre" id="nombre" value="{{t.nombre}}"></li>
+                                <li value="{{t.id}}" id="diseno" name="diseno" class="list-group-item">Diseño:<input readonly class="form-control-salida" type="text" name="diseno" id="diseno" value="{{t.diseno}}"></li>
+                                <li value="{{t.calidad}}" id="calidad" name="calidad" class="list-group-item">Calidad:<input  readonly class="form-control-salida" type="text" name="calidad" id="calidad" value="{{t.calidad}}"></li>
+                                <li value="{{t.color}}" id="color" name="color" class="list-group-item">Color:<input readonly class="form-control-salida" type="text"  name="color" id="color" value="{{t.color}}"></li>
+                                <li value="{{t.numeroRollo}}" id="numeroRollo" name="numeroRollo" class="list-group-item">Número de Rollo:<input readonly class="form-control-input" type="number" name="numeroRollo" id="numeroRollo" value="{{t.numeroRollo}}"></li>
+                                <li value="{{it.estante}}" id="estante" name="estante" class="list-group-item">Estante:<input readonly class="form-control-input" type="text" name="estante" id="estante" value="{{it.estante}}"></li> 
+                                <li value="{{it.cantidadYarda}}" id="cantidadYarda" name="cantidadYarda" class="list-group-item">Disponible:<input readonly class="form-control-input" type="text" name="cantidadYarda" id="cantidadYarda" value="{{it.cantidadYarda}}"></li>   
+                            </ul>
+                        </div>
+                        <div class="col-12">
+                            <div class="mb-3 div-btn-salida">  
+                                <input class="form-control-sm input-salida-cantidad" type="number" step="any" name="cantidad" id="cantidad" placeholder="Cantidad a retirar" min="1" required>
+                            </div>
+                        </div>
+                        
+                        <div class="col-12">
+                            <div class="mb-3 div-btn-salida">  
+                                <button class="btn-salida">Salida</button>
+                            </div>
+                        </div>
+                    </form>
+            </div>
+            <div class=" col-8">
+                
+                <table class="">
+                    <thead>
+                        <tr>
+                            <th class="text-center">Tela</th>
+                            <th class="text-center">Diseño</th>
+                            <th class="text-center">Cantidad</th>
+                            <th class="text-center">Estante</th>
+                            <th class="text-center">Número de Rollo</th>
+                            <th class="text-center">Calidad</th>
+                            <th class="text-center">Color</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for inventario in inv %}
+                            <tr data-href="{% url 'inventario:salidaTelas' inventario.tela.id inventario.estante.id %}" style="cursor: pointer;">
+                                <td class="text-center">{{inventario.tela.nombre}}</td>
+                                <td class="text-center">{{inventario.tela.diseno}}</td>
+                                <td class="text-center">{{inventario.cantidadYarda}}</td>
+                                <td class="text-center">{{inventario.estante}}</td>
+                                <td class="text-center">{{inventario.tela.numeroRollo}}</td>
+                                <td class="text-center">{{inventario.tela.calidad}}</td>
+                                <td class="text-center">{{inventario.tela.color}}</td>
+                            </tr>
+                        {% empty %}
+                            <tr>
+                                <td  class="text-center" colspan="10" class="text-danger text-center">No se encontraron resultados</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+            </div>
+        </div>
+    </div>
+    {% if messages %}
+        <div class="alert alert-{{msj}} mb-2">
+            {% for message in messages %}
+                {{ message}}
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block js %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('table tr').click(function(){
+            window.location = $(this).data('href');
+            return false;
+        });
+    });
+    $(function () {
+        
+        setTimeout(() => {
+            $('.alert').slideUp(function () {
+                $(this).remove();
+            });
+        }, 3000)
+
+    });
+</script>
+{% endblock js %}
+

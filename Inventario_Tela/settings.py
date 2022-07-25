@@ -25,7 +25,7 @@ SECRET_KEY = 'gshq8oed=(luwtucd()-t0g6sfrlo6)04f%2y=grky3r3!#9wd'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.ngrok.io']
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app_inventario',
     'app_login',
+    'app_usuarios',
 ]
 
 MIDDLEWARE = [
@@ -117,6 +118,8 @@ USE_L10N = True
 
 USE_TZ = True
 
+LOGIN_REDIRECT_URL = '/inventario/'
+LOGIN_URL = '/'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
@@ -124,3 +127,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR , 'static'
 
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+INTERNAL_IPS = [
+    '127.0.0.1',
+]

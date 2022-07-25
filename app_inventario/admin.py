@@ -5,21 +5,16 @@ from .models import *
 class EstanteAdmin(admin.ModelAdmin):
     list_display = ('id', 'nombre')
 
-class Tipo_TelaAdmin(admin.ModelAdmin):
-    list_display = ('id', 'nombre')
-
 class TelaAdmin(admin.ModelAdmin):
-    list_display = ('id', 'nombre', 'calidad', 'color', 'numeroRollo', 'tipoTela')
+    list_display = ('id', 'nombre', 'diseno', 'calidad', 'color', 'numeroRollo')
 
 class InventarioAdmin(admin.ModelAdmin):
-    list_display = ('id', 'estante', 'tela', 'cantidadYarda')
+    list_display = ('id', 'estante', 'tela', 'diseno' , 'cantidadYarda', 'fecha')
 
 class DetalleSalidaAdmin(admin.ModelAdmin):
-    list_display = ('id', 'fecha', 'nombre', 'calidad', 'color', 'numeroRollo', 'cantidadYarda', 'estante')
+    list_display = ('id', 'fecha', 'nombre', 'diseno', 'calidad', 'color', 'numeroRollo', 'cantidadYarda', 'estante')
 
 admin.site.register(Estante,EstanteAdmin) 
-
-admin.site.register(Tipo_Tela,Tipo_TelaAdmin)
 
 admin.site.register(Tela,TelaAdmin)
 

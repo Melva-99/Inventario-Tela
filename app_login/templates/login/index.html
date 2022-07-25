@@ -3,19 +3,13 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
     <title>Iniciar sesión</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/sign-in/">
-
-    <!-- Bootstrap core CSS -->
     <link href="static/telas/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
     <link href="static/telas/css/signin.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="{% static 'inventario/js/notify.min.js' %}"></script>
   </head>
   <body class="text-center">
     <div class="container mt-5">
@@ -27,16 +21,37 @@
       <div class="">
         <form class="form-signin" action="{% url 'login_view' %}" method="post">
           {% csrf_token %}
-            <img class="mb-4" src="{% static 'telas/img/logo.jpeg' %}" alt="" width="90" height="72">
+            <img class="mb-4" src="{% static 'telas/img/logo.png' %}" alt="" width="150" height="90">
             
             <input type="text" name="usuario" class="form-control m-input" value="" placeholder="Usuario">
             <input type="password" name="contrasena" class="form-control m-input" value="" placeholder="Contraseña">
-            <button class="btn btn-lg btn-color btn-block" type="submit">Iniciar sesión</button>
+            <button class="btn btn-lg btn-iniciar btn-block" type="submit">Iniciar sesión</button>
         </form>
-      </div>
+        <form class="form-signin" action="{% url 'usuarios:RegistroUsuario' %}" method="post">
+          {% csrf_token %}
+            <button class="btn btn-lg btn-crear btn-block" type="submit">Crear Usuario</button>
+        </form>
+        </div>
     </div>
-    
   </body>
+  <script>
+    $(function () 
+    {
+       setTimeout(() => {
+           $('.alert').slideUp(function () {
+               $(this).remove();
+           });
+       }, 2000)
+    });
+ </script>
+ <script>
+    function filtro()
+    {
+    var tecla = event.key;
+    if (['.','e'].includes(tecla))
+       event.preventDefault()
+    }
+ </script>
 </html>
 
 

@@ -1,56 +1,73 @@
-.contenedor-form{
-    margin-left: 30%;
-}
-.div-entrada-shadow{
-    background-color: #c4b8b8;
-    width: 32rem;
-    box-shadow: 3px 3px 20px 4px rgba(2, 19, 247, 0.25);
-    height: 40rem;
-    border-radius: 0.5rem;
-    text-align: center;
-    display:flex;
-    margin: 0 auto;
-    color: black;
-}
-.btn-cards{
-    color: whitesmoke;
-    margin-top: 1rem;
-}
 
+.h1-entrada{
+    color: #3d2218;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+label{
+    color: #3d2218;
+}
+.btn-entrada{
+    border:0px;
+    background-color: #f4bc6e;
+    border-radius:0.5rem;
+    width:10rem;
+    height:3rem;
+}
+.margen-div-boton{
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+}
 /**css de salida**/
+.contenedor-padre{
+    display: flex;
+    justify-content: left;
+}
+.contenedor{
+    width: 21.5rem;
+    height: 32rem;
+}
+.div-codigo{
+    display: flex;
+    justify-content: left;
+    margin-left:1rem;
+    color:#3d2218;
+}
+.ul-salida{
+    padding-left: 0;
+    width: 20rem;
+}
+.div-btn-salida{
+    display: flex;
+    justify-content: center;
+}
+.btn-salida{
+    border:0px;
+    margin-top: 0.5rem;
+    background-color: #f4bc6e;
+    border-radius:0.5rem;
+    width:10rem;
+    height:3rem;
+    margin-bottom: 1rem;
+}
 .form-control-salida{
     margin: 5px;
     border:0;
     font-weight:700;
-    color:#063141;
-    width: 65% !important;
+    color:#3d2218;
+    width: 100% !important;
 }
 .form-control-input{
     margin: 5px;
     border:0;
     font-weight:700;
     color:#063141;
-    width: 35% !important;
+    width: 100% !important;
 }
 .input-salida-cantidad{
-    margin-top: 20px;
-    border:0;
+    
     border-radius: 5px;
-    width: 57%;
-    height: 20%;
-}
-.btn-salida{
-    margin-top: 20px;
-    padding: 4px;
-    border:0;
-    border-radius: 5px;
-    width: 20%;
-    background-color: #2596be;
-}
-.table-color-salida{
-    background-color: #c4b8b8;
-}
-.card-salida{
-    background:aliceblue;
-    border-radius: 10px;
+    width: 100%;
+    height: 20%; 
 }
