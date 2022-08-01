@@ -31,10 +31,14 @@ def inventario(request):
 #SALIDA
 @login_required()
 def salida(request):
-    inventario = Inventario.objects.all()
-    tela = Tela.objects.all()
+
+    q = request.GET.get('q')
+
+    if q:
+        inventario = Inventario.objects.filter(tela__nombre__icontains=q)
+    else:
+        inventario = Inventario.objects.all()
     ctx ={
-        'tela': tela,
         'inv' : inventario,
     }
     return render(request, 'inventario/salida.html', ctx)

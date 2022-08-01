@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.urls import reverse
@@ -23,7 +22,6 @@ def log_in(request):
         else:
             messages.add_message(request, messages.ERROR, 'El usuario/contraseña inválidos o la cuenta está desactivada')
             return redirect('/')
-        return HttpResponse(f'Usuario: {user} - Clave: {pawd}')
     else:
         return redirect('/')
 
@@ -31,3 +29,4 @@ def log_in(request):
 def log_out(request):
     logout(request)
     return redirect('/')
+

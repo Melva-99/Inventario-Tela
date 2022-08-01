@@ -40,8 +40,11 @@
                         </div>
                     </form>
             </div>
-            <div class=" col-8">
-                
+            <div class=" col-8 ">
+                <form action="" method="get">
+                    <input type="search" name="q" value="{{ q|default_if_none:'' }}" class="form-control" placeholder="Buscar tela">
+                </form>
+                <br>
                 <table class="">
                     <thead>
                         <tr>

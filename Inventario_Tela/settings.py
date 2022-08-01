@@ -25,7 +25,7 @@ SECRET_KEY = 'gshq8oed=(luwtucd()-t0g6sfrlo6)04f%2y=grky3r3!#9wd'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.ngrok.io']
+ALLOWED_HOSTS = [ ]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
